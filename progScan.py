@@ -7,7 +7,7 @@ def scan_port(ip, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(0.5)
     try:
-        connect = sock.connect((ip, port))
+        sock.connect((ip, port))
         service = socket.getservbyport(port)
         print(f'Port {port} is open ({service}).\n')
         sock.close()
@@ -18,4 +18,4 @@ def scan_port(ip, port):
 for i in range(n):
     potoc = threading.Thread(target=scan_port, args=(ip, i))
     potoc.start()
-print("Scanning complited!")
+print("Scanning completed!")
