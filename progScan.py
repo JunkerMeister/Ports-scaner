@@ -35,6 +35,6 @@ if save_to_file.lower() == "1":
     with open(filename, 'w') as file:
         for result in scan_results:
             file.write(result + "\n")
-    print("Results saved!.")
+    print("Results saved!")
 else:
     print("Exit")
