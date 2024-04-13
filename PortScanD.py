@@ -22,7 +22,7 @@ def scan_port(ip, port):
             pass
 
 #на макс воркерс надо дотестить пока 500 норм.......
-with concurrent.futures.ThreadPoolExecutor(max_workers=500) as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
     for ip in generator:
         for port in range(1, n+1):
             executor.submit(scan_port, str(ip), port)
