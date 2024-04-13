@@ -3,8 +3,13 @@ import socket
 import concurrent.futures
 from netaddr import iter_iprange
 
-start = input("Enter your start IP: ")
-end = input("Enter your end IP: ")
+ask = int(input('Do you want to test the program in the ready range 185.164.172.178-185.164.172.184?\n(1/0): '))
+if ask == 1:
+    start = '185.164.172.178'
+    end = '185.164.172.184'
+else:
+    start = input("Enter your start IP: ")
+    end = input("Enter your end IP: ")
 n = int(input("Enter the number of ports to scan: "))
 generator = iter_iprange(start, end, step=1)
 scan_results = ['Scanning report:\n----------------\n ']
@@ -22,7 +27,7 @@ def scan_port(ip, port):
             pass
 
 #на макс воркерс надо дотестить пока 500 норм.......
-with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=55) as executor:
     for ip in generator:
         for port in range(1, n+1):
             executor.submit(scan_port, str(ip), port)
