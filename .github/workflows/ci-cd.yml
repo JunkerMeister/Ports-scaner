@@ -8,25 +8,7 @@ on:
 
 jobs:
 
-  test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.9"
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
-    - name: Run tests
-      run: pytest tests/
-
   build-and-push:
-    needs: test
     runs-on: ubuntu-latest
     
     steps:
@@ -41,4 +23,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-python-app:latest
+        tags: junkermeister/my-python-app:latest

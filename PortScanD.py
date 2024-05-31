@@ -17,6 +17,7 @@ def scan_port(ip, port):
                 return (f'{ip}: Port {port} is open ({service}).')
         except:
             pass
+            
 
 
 if __name__ == '__main__':
