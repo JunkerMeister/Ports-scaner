@@ -25,6 +25,7 @@ def scan_port(ip, port):
             scan_results.append(f'{ip}: Port {port} is open ({service}).\n')
         except:
             pass
+            
 
 #на макс воркерс надо дотестить пока 500 норм.......
 with concurrent.futures.ThreadPoolExecutor(max_workers=55) as executor:
