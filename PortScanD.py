@@ -1,7 +1,8 @@
 # 185.164.172.184
 import socket
 import concurrent.futures
-from netaddr import iter_iprange
+if __name__ == '__main__':
+    from netaddr import iter_iprange
 
 
 def scan_port(ip, port):
