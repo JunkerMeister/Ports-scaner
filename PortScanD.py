@@ -5,6 +5,7 @@ if __name__ == '__main__':
     from netaddr import iter_iprange
 
 
+
 def scan_port(ip, port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.settimeout(0.5)
@@ -19,6 +20,8 @@ def scan_port(ip, port):
         except:
             pass
             
+
+
 
 
 if __name__ == '__main__':
@@ -39,8 +42,7 @@ if __name__ == '__main__':
         for ip in generator:
             for port in range(1, n+1):
                 executor.submit(scan_port, str(ip), port)
-
-
+                
     print("----\nScanning completed!")
 
 
