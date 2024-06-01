@@ -23,7 +23,6 @@ def scan_port(ip, port):
 
 
 
-
 if __name__ == '__main__':
     ask = int(input('Do you want to test the program in the ready range 185.164.172.178-185.164.172.184?\n(1/0): '))
     if ask == 1:
